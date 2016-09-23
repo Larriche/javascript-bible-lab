@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+ <head>
+   <meta charset="utf-8">
+   <title>Scripting Forms</title>
+ </head>
+ <body>
+   <form id="sample-form">
+     <input type="text">
+     <input type="text">
+     <input type="text">
+   </form>
+ </body>
+ <script>
+ window.onload = fillForm;
+
+ function fillForm()
+ {
+ 	var form = document.getElementById('sample-form');
+
+ 	if(!form) return false;
+
+ 	for(var i = 0;i < form.elements.length;i++){
+ 		if(form.elements[i].type == "text"){
+ 			form.elements[i].value = "Algor";
+ 		}
+
+ 		form.elements[i].onchange = taunt;
+ 	}
+ }
+
+ function taunt(input)
+ {
+ 	alert("No way! You can't change that");
+ 	fillForm();
+ }
+ </script>
+</html>
